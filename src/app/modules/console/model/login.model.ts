@@ -1,21 +1,5 @@
 
 export class LoginModel {
-  private _login: string;
-  private _password: string;
-
-  get login(): string {
-    return this._login;
-  }
-
-  set login(value: string) {
-    this._login = value;
-  }
-
-  get password(): string {
-    return this._password;
-  }
-
-  set password(value: string) {
-    this._password = value;
-  }
+  login: string;
+  password: string;
 }
