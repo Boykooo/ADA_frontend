@@ -11,8 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent
   ],
   imports: [
-    ConsoleRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ConsoleRoutingModule
   ],
   providers: [AuthService]
 })

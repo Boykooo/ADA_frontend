@@ -1,4 +1,4 @@
-import { ResponseStatus } from './response-status.model';
+import { ResponseStatus } from './model/response-status.model';
 
 export abstract class BaseResponse {
   status: ResponseStatus;
