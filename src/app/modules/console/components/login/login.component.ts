@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { log } from 'util';
 import { LoginModel } from '../../model/login.model';
-import { BaseResponse } from '../../../common/response/base.response';
 import { ResponseStatus } from '../../../common/response/model/response-status.model';
-import { ErrorResponse } from '../../../common/response/error.response';
+import { DataResponse } from '../../../common/response/data.response';
+import { AuthDataModel } from '../../model/auth-data.model';
 
 @Component({
   selector: 'app-login',
@@ -17,22 +16,20 @@ export class LoginComponent {
   }
 
   public test(): void {
-    try {
-      let loginModel = new LoginModel();
-      loginModel.email = 'test@test.ru';
-      loginModel.password = 'test';
-      this.authService.login(loginModel)
-        .subscribe(response => {
-          let baseResponse = response as BaseResponse;
-          if (baseResponse.status === ResponseStatus.OK) {
-            log("OK");
-          } else {
-            let errorResponse = baseResponse as ErrorResponse;
-            console.log(errorResponse);
-          }
-        });
-    } catch (ex) {
-      log('error');
-    }
+    let loginModel = new LoginModel();
+    loginModel.email = 'test@test.ru';
+    loginModel.password = 'test';
+    this.authService.login(loginModel)
+      .subscribe(baseResponse => {
+        if (baseResponse.status === ResponseStatus.OK) {
+          this.authService.successLogin(baseResponse as DataResponse<AuthDataModel>);
+      } else {
+          console.log('error');
+        }
+      });
+  }
+
+  public checkCookie(): void {
+    this.authService.checkCookie();
   }
 }

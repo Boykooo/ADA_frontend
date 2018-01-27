@@ -4,17 +4,21 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthService } from './services/auth.service';
 import { ConsoleRoutingModule } from './routing/console-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ExceptionComponent } from './components/exception/exception.component';
+import { RoutingService } from './services/routing.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ExceptionComponent
   ],
   imports: [
     HttpClientModule,
     ConsoleRoutingModule
   ],
-  providers: [AuthService]
+  providers: [AuthService, RoutingService, CookieService]
 })
 export class ConsoleModule {
 }

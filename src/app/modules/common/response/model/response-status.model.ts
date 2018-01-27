@@ -1,4 +1,4 @@
 export enum ResponseStatus {
-  OK,
-  ERROR
+  OK = 'OK',
+  ERROR = 'ERROR'
 }
