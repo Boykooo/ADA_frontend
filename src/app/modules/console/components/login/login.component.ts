@@ -28,8 +28,4 @@ export class LoginComponent {
         }
       });
   }
-
-  public checkCookie(): void {
-    this.authService.checkCookie();
-  }
 }

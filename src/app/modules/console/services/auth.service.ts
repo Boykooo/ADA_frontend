@@ -1,6 +1,6 @@
 import { LoginModel } from '../model/login.model';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BaseResponse } from '../../common/response/base.response';
 import { RoutingService } from './routing.service';
@@ -9,7 +9,7 @@ import { DataResponse } from '../../common/response/data.response';
 import { AuthDataModel } from '../model/auth-data.model';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnInit {
 
   private url: string;
   private authData: AuthDataModel;
@@ -18,6 +18,14 @@ export class AuthService {
               private routingService: RoutingService,
               private cookieService: CookieService) {
     this.url = 'http://localhost:9081/auth';
+  }
+
+  public ngOnInit(): void {
+    let token = this.cookieService.get('token');
+    if (token != null) {
+      this.authData = new AuthDataModel();
+      this.authData.token = token;
+    }
   }
 
   public login(loginModel: LoginModel): Observable<BaseResponse> {
@@ -39,12 +47,12 @@ export class AuthService {
     console.log('Added to cookie token = %s', this.authData.token);
   }
 
-  public checkCookie(): void {
-    let all = this.cookieService.getAll();
-    console.log(all);
+  private isLogin(): boolean {
+    return this.authData != null;
   }
 
-  private isLogin(): boolean {
-    return false;
+  public logout() {
+    this.cookieService.deleteAll();
+    this.authData = null;
   }
 }
