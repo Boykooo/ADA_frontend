@@ -44,7 +44,7 @@ export class AuthService implements OnInit {
   public successLogin(dataResponse: DataResponse<AuthDataModel>) {
     this.authData = dataResponse.response;
     this.cookieService.set('token', this.authData.token);
-    console.log('Added to cookie token = %s', this.authData.token);
+    console.log('Added to cookie the token = %s', this.authData.token);
   }
 
   private isLogin(): boolean {

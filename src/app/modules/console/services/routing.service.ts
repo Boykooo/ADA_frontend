@@ -19,4 +19,8 @@ export class RoutingService {
     this.router.navigateByUrl('/welcome');
   }
 
+  public toDashboard() {
+    this.router.navigateByUrl('/dashboard');
+  }
+
 }

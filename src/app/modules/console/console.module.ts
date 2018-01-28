@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExceptionComponent } from './components/exception/exception.component';
 import { RoutingService } from './services/routing.service';
 import { CookieService } from 'ngx-cookie-service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CookieService } from 'ngx-cookie-service';
     ExceptionComponent
   ],
   imports: [
+    FormsModule,
     HttpClientModule,
     ConsoleRoutingModule
   ],
