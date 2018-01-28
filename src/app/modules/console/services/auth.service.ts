@@ -9,7 +9,7 @@ import { DataResponse } from '../../common/response/data.response';
 import { AuthDataModel } from '../model/auth-data.model';
 
 @Injectable()
-export class AuthService implements OnInit {
+export class AuthService {
 
   private url: string;
   private authData: AuthDataModel;
@@ -18,9 +18,10 @@ export class AuthService implements OnInit {
               private routingService: RoutingService,
               private cookieService: CookieService) {
     this.url = 'http://localhost:9081/auth';
+    this.init();
   }
 
-  public ngOnInit(): void {
+  private init(): void {
     let token = this.cookieService.get('token');
     if (token != null) {
       this.authData = new AuthDataModel();
@@ -44,7 +45,6 @@ export class AuthService implements OnInit {
   public successLogin(dataResponse: DataResponse<AuthDataModel>) {
     this.authData = dataResponse.response;
     this.cookieService.set('token', this.authData.token);
-    console.log('Added to cookie the token = %s', this.authData.token);
   }
 
   private isLogin(): boolean {
