@@ -23,7 +23,7 @@ export class AuthService {
 
   private init(): void {
     let token = this.cookieService.get('token');
-    if (token != null) {
+    if (token) {
       this.authData = new AuthDataModel();
       this.authData.token = token;
     }
