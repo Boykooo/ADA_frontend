@@ -1,0 +1,8 @@
+.default-container {
+  @extend .container;
+  margin: 0;
+}
+
+.console-navbar {
+  min-height: 58px;
+}

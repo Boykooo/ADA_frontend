@@ -5,6 +5,7 @@ import { ResponseStatus } from '../../../common/response/model/response-status.m
 import { DataResponse } from '../../../common/response/data.response';
 import { AuthDataModel } from '../../model/auth-data.model';
 import { RoutingService } from '../../services/routing.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,13 @@ export class LoginComponent implements OnInit {
   loginModel: LoginModel;
 
   constructor(private authService: AuthService,
-              private routingService: RoutingService) {
+              private routingService: RoutingService,
+              private titleService: Title) {
   }
 
   ngOnInit(): void {
     this.loginModel = new LoginModel();
+    this.titleService.setTitle('Login');
   }
 
   public login(): void {
