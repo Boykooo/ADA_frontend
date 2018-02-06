@@ -8,17 +8,23 @@ import { ExceptionComponent } from './components/exception/exception.component';
 import { RoutingService } from './services/routing.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
+import { TestComponent } from './components/test/test.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
-    ExceptionComponent
+    ExceptionComponent,
+    TestComponent
   ],
   imports: [
     FormsModule,
     HttpClientModule,
-    ConsoleRoutingModule
+    ConsoleRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [AuthService, RoutingService, CookieService]
 })
