@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/material';
+
+const subModules: any = [
+  MatButtonModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatGridListModule
+];
 
 @NgModule({
   declarations: [],
-  imports: [MatButtonModule],
-  exports: [MatButtonModule]
+  imports: [subModules],
+  exports: [subModules]
 })
 export class MaterialModule {
 }

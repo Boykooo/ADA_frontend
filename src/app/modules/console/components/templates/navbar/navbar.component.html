@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-grid-list [cols]="3" style="width: 100%">
+    <mat-grid-tile>
+      <span><mat-icon>mood</mat-icon></span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      Yay, Material in Angular 2!
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-toolbar>

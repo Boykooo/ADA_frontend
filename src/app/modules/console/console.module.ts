@@ -11,13 +11,17 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { TestComponent } from './components/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/templates/navbar/navbar.component';
+import { ConsoleNavbarComponent } from './components/templates/console-navbar/console-navbar.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
     ExceptionComponent,
-    TestComponent
+    TestComponent,
+    NavbarComponent,
+    ConsoleNavbarComponent
   ],
   imports: [
     FormsModule,

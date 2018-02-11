@@ -1,1 +1,27 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+/*@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";*/
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/styles/common.css";
+
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
