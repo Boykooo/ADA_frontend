@@ -5,6 +5,7 @@ import { HomeModule } from '../home/home.module';
 import { AppRoutingModule } from './routing/app-routing-module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ConsoleModule } from '../console/console.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ConsoleModule } from '../console/console.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    ConsoleModule
+    ConsoleModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

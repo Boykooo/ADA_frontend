@@ -13,6 +13,7 @@ import { TestComponent } from './components/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/templates/navbar/navbar.component';
 import { ConsoleNavbarComponent } from './components/templates/console-navbar/console-navbar.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ConsoleNavbarComponent } from './components/templates/console-navbar/co
     HttpClientModule,
     ConsoleRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [AuthService, RoutingService, CookieService]
 })

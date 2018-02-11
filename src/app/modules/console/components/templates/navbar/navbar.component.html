@@ -1,19 +1,22 @@
-<mat-toolbar color="primary">
-  <mat-grid-list [cols]="3" style="width: 100%">
-    <mat-grid-tile>
-      <span><mat-icon>mood</mat-icon></span>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      Yay, Material in Angular 2!
-    </mat-grid-tile>
-    <mat-grid-tile>
+<div fxLayout="row" >
+  <mat-toolbar color="primary" class="no-padding">
+    <div fxFlex="5%" fxLayoutAlign="center">
+      <mat-icon color="default">place</mat-icon>
+    </div>
+    <div fxFlex="85%" fxLayoutAlign="center">
+    </div>
+    <div fxFlex="5%" fxLayoutAlign="center">
+      <mat-icon color="default">notifications_active</mat-icon>
+    </div>
+    <div fxFlex="5%" fxLayoutAlign="center">
       <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>Profile</button>
         <button mat-menu-item>Logout</button>
       </mat-menu>
-    </mat-grid-tile>
-  </mat-grid-list>
-</mat-toolbar>
+    </div>
+  </mat-toolbar>
+</div>
+
