@@ -6,3 +6,14 @@
   <button mat-raised-button color="primary">The</button>
   <button mat-raised-button color="accent">Buttons</button>
 </div>
+
+<section>
+  <button mat-button [disableRipple]="disableButtonRipples">flat</button>
+  <button mat-raised-button [disableRipple]="disableButtonRipples">raised</button>
+  <button mat-fab [disableRipple]="disableButtonRipples">
+    <mat-icon>check</mat-icon>
+  </button>
+  <button mat-mini-fab [disableRipple]="disableButtonRipples">
+    <mat-icon>check</mat-icon>
+  </button>
+</section>
