@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { TestComponent } from './components/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/templates/navbar/navbar.component';
-import { ConsoleNavbarComponent } from './components/templates/console-navbar/console-navbar.component';
+import { NavbarComponent } from './components/common/navbar/navbar.component';
+import { ConsoleNavbarComponent } from './components/common/console-navbar/console-navbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({

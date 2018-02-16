@@ -1,19 +1,12 @@
-<div class="container">
-  <h2>Test page</h2>
-  <button mat-button>All</button>
-  <button mat-raised-button>Of</button>
-  <button mat-raised-button color="warn">asdasdsad</button>
-  <button mat-raised-button color="primary">The</button>
-  <button mat-raised-button color="accent">Buttons</button>
-</div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" >
+    Sidenav content
+  </mat-sidenav>
 
-<section>
-  <button mat-button [disableRipple]="disableButtonRipples">flat</button>
-  <button mat-raised-button [disableRipple]="disableButtonRipples">raised</button>
-  <button mat-fab [disableRipple]="disableButtonRipples">
-    <mat-icon>check</mat-icon>
-  </button>
-  <button mat-mini-fab [disableRipple]="disableButtonRipples">
-    <mat-icon>check</mat-icon>
-  </button>
-</section>
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+    <p>Events:</p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

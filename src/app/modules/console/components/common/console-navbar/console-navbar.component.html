@@ -1,5 +1,13 @@
-<mat-toolbar color="primary" class="no-padding full-height" fxLayout="column" fxLayoutAlign="end center">
+<mat-toolbar color="primary" class="no-padding full-height" fxLayout="column" fxLayoutAlign="start center">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side">
+      Sidenav content
+    </mat-sidenav>
+  </mat-sidenav-container>
   <div>
+    <button mat-raised-button (click)="sidenav.toggle()">
+      <mat-icon color="default">place</mat-icon>
+    </button>
     <div fxLayoutAlign="center">
       <mat-icon color="default">place</mat-icon>
     </div>
