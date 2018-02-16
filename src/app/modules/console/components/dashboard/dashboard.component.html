@@ -1,8 +1,8 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side">
+  <mat-sidenav #sidenav mode="over">
     Sidenav content
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="full-height">
     <app-navbar [sidenavRef]="sidenav"></app-navbar>
     <h2>Dashboard content</h2>
   </mat-sidenav-content>

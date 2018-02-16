@@ -20,7 +20,6 @@ const subModules: any = [
 
 @NgModule({
   declarations: [],
-  imports: [subModules],
   exports: [subModules]
 })
 export class MaterialModule {
