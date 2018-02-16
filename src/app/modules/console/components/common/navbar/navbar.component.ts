@@ -10,4 +10,8 @@ export class NavbarComponent {
 
   @Input()
   sidenavRef: MatSidenav;
+
+  public toggleSidenav() {
+    this.sidenavRef.toggle();
+  }
 }

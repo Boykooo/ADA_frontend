@@ -2,7 +2,9 @@
   <mat-toolbar color="primary">
     <div fxFlex="5%" fxLayoutAlign="center">
       <!--<mat-icon color="default">place</mat-icon>-->
-      <p><button mat-button (click)="sidenavRef.toggle()">sidenav.toggle()</button></p>
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>reorder</mat-icon>
+      </button>
     </div>
     <div fxFlex="85%" fxLayoutAlign="center">
     </div>
@@ -20,5 +22,3 @@
     </div>
   </mat-toolbar>
 </div>
-
-
