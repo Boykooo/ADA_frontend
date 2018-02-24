@@ -6,6 +6,7 @@ import { AppRoutingModule } from './routing/app-routing-module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ConsoleModule } from '../console/console.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HomeModule,
     ConsoleModule,

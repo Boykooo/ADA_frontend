@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatSidenavModule, MatTableModule,
+  MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatRippleModule, MatSidenavModule,
+  MatTableModule,
   MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
@@ -19,8 +20,8 @@ const subModules: any = [
 ];
 
 @NgModule({
-  declarations: [],
   exports: [subModules]
 })
 export class MaterialModule {
 }
+

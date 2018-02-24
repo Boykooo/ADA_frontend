@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Title } from '@angular/platform-browser';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',

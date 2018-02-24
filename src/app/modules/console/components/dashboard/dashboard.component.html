@@ -1,58 +1,15 @@
-<!--<mat-sidenav-container>-->
-  <!--<mat-sidenav #sidenav mode="over">-->
-    <!--<app-console-navbar></app-console-navbar>-->
-  <!--</mat-sidenav>-->
-  <!--<mat-sidenav-content class="full-height">-->
-    <!--<app-navbar [sidenavRef]="sidenav"></app-navbar>-->
-    <!--<h2>Dashboard content</h2>-->
-  <!--</mat-sidenav-content>-->
-<!--</mat-sidenav-container>-->
 
-<!--<mat-sidenav-container>-->
-  <!--<mat-sidenav #sidenav mode="over">-->
-    <!--<app-console-navbar [content]="dashboard" content="dashboard"></app-console-navbar>-->
-  <!--</mat-sidenav>-->
-  <!--<mat-sidenav-content class="full-height">-->
-    <!--<app-navbar [sidenavRef]="sidenav"></app-navbar>-->
-  <!--</mat-sidenav-content>-->
-<!--</mat-sidenav-container>-->
-
-<!--<app-console-navbar></app-console-navbar>-->
-
-<div fxLayout="row">
-  <mat-toolbar color="primary">
-    <div fxFlex="5%" fxLayoutAlign="center">
-      <!--<mat-icon color="default">place</mat-icon>-->
-      <!--<button mat-icon-button (click)="sidenav.toggle()">-->
-        <!--<mat-icon>reorder</mat-icon>-->
-      <!--</button>-->
+<div fxLayout="row" class="full-height">
+  <div fxFlex="10%">
+    <app-console-navbar></app-console-navbar>
+  </div>
+  <div fxFlex="90%">
+    <div fxLayout="row">
+      <div fxFlex="100%" style="background-color: #f5f5f5;">
+        <app-navbar></app-navbar>
+        <h2>Dashboard content</h2>
+      </div>
     </div>
-    <div fxFlex="85%" fxLayoutAlign="center">
-    </div>
-    <div fxFlex="5%" fxLayoutAlign="center">
-      <mat-icon color="default">notifications_active</mat-icon>
-    </div>
-    <div fxFlex="5%" fxLayoutAlign="center">
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Profile</button>
-        <button mat-menu-item>Logout</button>
-      </mat-menu>
-    </div>
-  </mat-toolbar>
+  </div>
 </div>
 
-<div fxLayout="column">
-  <mat-nav-list>
-    <a mat-list-item href="#">Item 1</a>
-    <a mat-list-item href="#">Item 2</a>
-    <a mat-list-item href="#">Item 3</a>
-  </mat-nav-list>
-</div>
-
-
-<div #dashboard>
-  <h2>Dashboard content</h2>
-</div>
