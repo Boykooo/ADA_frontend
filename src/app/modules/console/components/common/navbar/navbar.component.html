@@ -1,20 +1,17 @@
 <div fxLayout="row" >
-  <mat-toolbar style="background-color: white !important;">
-    <div fxFlex="5%" fxLayoutAlign="center">
-    </div>
+  <mat-toolbar class="navbar-theme">
     <div fxFlex="85%" fxLayoutAlign="center">
     </div>
     <div fxFlex="5%" fxLayoutAlign="center">
       <mat-icon color="default">notifications_active</mat-icon>
     </div>
     <div fxFlex="5%" fxLayoutAlign="center">
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Profile</button>
-        <button mat-menu-item>Logout</button>
-      </mat-menu>
+      <mat-icon color="default">settings</mat-icon>
+    </div>
+    <div fxFlex="5%" fxLayoutAlign="center">
+      <mat-icon color="default">exit_to_app</mat-icon>
     </div>
   </mat-toolbar>
 </div>
+
+

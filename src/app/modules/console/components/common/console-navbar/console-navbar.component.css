@@ -1,3 +1,9 @@
-.console-theme {
+.console-nav-theme {
   background-color: #2B303B;
 }
+
+.console-nav-item .mat-list-item {
+  color: #a2abbf;
+  margin-top: 10px;
+}
+

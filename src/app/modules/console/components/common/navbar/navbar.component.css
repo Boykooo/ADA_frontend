@@ -1,3 +1,7 @@
 .default-navbar {
   min-height: 40px;
 }
+
+.navbar-theme {
+  background-color: white;
+}
