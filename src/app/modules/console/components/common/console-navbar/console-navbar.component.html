@@ -3,8 +3,9 @@
     <mat-icon style="color: white" class="icon-32">place</mat-icon>
   </mat-toolbar>
   <mat-nav-list class="no-padding console-nav-item">
-    <a mat-list-item disableRipple hover="red" href="/dashboard"><span>Dashboard</span></a>
-    <a mat-list-item disableRipple href="#">Dumps</a>
-    <a mat-list-item disableRipple href="#">Settings</a>
+    <a mat-list-item disableRipple hover="red" routerLink="/dashboard"><span>Dashboard</span></a>
+    <a mat-list-item disableRipple routerLink="/dumps">Dumps</a>
+    <a mat-list-item disableRipple routerLink="/history">Restore history</a>
+    <a mat-list-item disableRipple routerLink="/settings">Settings</a>
   </mat-nav-list>
 </div>

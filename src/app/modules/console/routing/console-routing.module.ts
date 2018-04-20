@@ -4,6 +4,9 @@ import { LoginComponent } from '../components/login/login.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { ExceptionComponent } from '../components/exception/exception.component';
 import { TestComponent } from '../components/test/test.component';
+import { DumpsComponent } from '../components/dumps/dumps.component';
+import { SettingsComponent } from '../components/settings/settings.component';
+import { RestoreHistoryComponent } from '../components/history/restore-history.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,18 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestComponent
+  },
+  {
+    path: 'dumps',
+    component: DumpsComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
+  },
+  {
+    path: 'history',
+    component: RestoreHistoryComponent
   }
 ];
 

@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { ConsoleNavbarComponent } from './components/common/console-navbar/console-navbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {DumpsComponent} from "./components/dumps/dumps.component";
+import { SettingsComponent } from './components/settings/settings.component';
+import { RestoreHistoryComponent } from './components/history/restore-history.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ExceptionComponent,
     TestComponent,
     NavbarComponent,
-    ConsoleNavbarComponent
+    ConsoleNavbarComponent,
+    DumpsComponent,
+    SettingsComponent,
+    RestoreHistoryComponent
   ],
   imports: [
     FormsModule,
