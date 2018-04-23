@@ -6,7 +6,7 @@ import { ExceptionComponent } from '../components/exception/exception.component'
 import { TestComponent } from '../components/test/test.component';
 import { DumpsComponent } from '../components/dumps/dumps.component';
 import { SettingsComponent } from '../components/settings/settings.component';
-import { RestoreHistoryComponent } from '../components/history/restore-history.component';
+import { RestoreHistoryComponent } from '../components/restore-history/restore-history.component';
 
 const routes: Routes = [
   {

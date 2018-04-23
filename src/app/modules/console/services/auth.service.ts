@@ -13,11 +13,13 @@ export class AuthService {
 
   private url: string;
   private authData: AuthDataModel;
+  private authHeader: string;
 
   constructor(private httpClient: HttpClient,
               private routingService: RoutingService,
               private cookieService: CookieService) {
     this.url = 'http://localhost:9081/auth';
+    this.authHeader = "Auth-Token";
     this.init();
   }
 
@@ -44,7 +46,7 @@ export class AuthService {
 
   public successLogin(dataResponse: DataResponse<AuthDataModel>) {
     this.authData = dataResponse.response;
-    this.cookieService.set('token', this.authData.token);
+    this.cookieService.set(this.authHeader, this.authData.token);
   }
 
   private isLogin(): boolean {

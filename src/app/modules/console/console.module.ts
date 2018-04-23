@@ -16,7 +16,8 @@ import { ConsoleNavbarComponent } from './components/common/console-navbar/conso
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {DumpsComponent} from "./components/dumps/dumps.component";
 import { SettingsComponent } from './components/settings/settings.component';
-import { RestoreHistoryComponent } from './components/history/restore-history.component';
+import { RestoreHistoryComponent } from './components/restore-history/restore-history.component';
+import { RestoreHistoryService } from './services/restore-history.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,12 @@ import { RestoreHistoryComponent } from './components/history/restore-history.co
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [AuthService, RoutingService, CookieService]
+  providers: [
+    AuthService,
+    RoutingService,
+    CookieService,
+    RestoreHistoryService
+  ]
 })
 export class ConsoleModule {
 }
