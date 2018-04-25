@@ -9,6 +9,8 @@ import { RestoreHistoryService } from '../../services/restore-history.service';
 })
 export class RestoreHistoryComponent implements OnInit {
 
+
+
   constructor(private titleService: Title,
               private restoreHistoryService: RestoreHistoryService) {
   }

@@ -1,5 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class RestoreHistoryService {
@@ -7,12 +8,14 @@ export class RestoreHistoryService {
   private url: string;
 
   constructor(private httpClient: HttpClient) {
+    this.url = environment.geoUrl + '/restore-history'
   }
 
-  getRestoreHistories(page: number, size: number) {
-    this.url = 'http://localhost:9082/security/test';
-    this.httpClient.get(this.url, {withCredentials: true})
-      .subscribe();
+  getRestoreHistories(page: number, size: number): any {
+    return this.httpClient.get(
+      this.url,
+      { withCredentials: true }
+    ).subscribe();
   }
 
 }
