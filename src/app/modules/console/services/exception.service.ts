@@ -1,4 +1,4 @@
-import { ErrorInfo } from '../../common/response/model/error-info.model';
+import { ErrorInfo } from '../../shared/response/model/error-info.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 

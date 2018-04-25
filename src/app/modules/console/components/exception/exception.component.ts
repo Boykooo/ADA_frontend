@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExceptionService } from '../../services/exception.service';
-import { ErrorInfo } from '../../../common/response/model/error-info.model';
+import { ErrorInfo } from '../../../shared/response/model/error-info.model';
 
 @Component({
   selector: 'app-exception',

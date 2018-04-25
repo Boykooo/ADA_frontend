@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { LoginModel } from '../../domain/login.model';
-import { ResponseStatus } from '../../../common/response/model/response-status.model';
-import { DataResponse } from '../../../common/response/data.response';
+import { ResponseStatus } from '../../../shared/response/model/response-status.model';
+import { DataResponse } from '../../../shared/response/data.response';
 import { AuthDataModel } from '../../domain/auth-data.model';
 import { RoutingService } from '../../services/routing.service';
 import { Title } from '@angular/platform-browser';

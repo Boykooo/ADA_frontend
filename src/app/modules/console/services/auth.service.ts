@@ -2,10 +2,10 @@ import { LoginModel } from '../domain/login.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { BaseResponse } from '../../common/response/base.response';
+import { BaseResponse } from '../../shared/response/base.response';
 import { RoutingService } from './routing.service';
 import { CookieService } from 'ngx-cookie-service';
-import { DataResponse } from '../../common/response/data.response';
+import { DataResponse } from '../../shared/response/data.response';
 import { AuthDataModel } from '../domain/auth-data.model';
 
 @Injectable()
