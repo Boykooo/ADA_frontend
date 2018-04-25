@@ -12,10 +12,15 @@ export class RestoreHistoryService {
   }
 
   getRestoreHistories(page: number, size: number): any {
-    return this.httpClient.get(
-      this.url,
-      { withCredentials: true }
-    ).subscribe();
+    return this.httpClient.get(this.url,
+      {
+        params: {
+          page : page.toString(),
+          size: size.toString()
+        },
+        withCredentials: true
+      }
+    )
   }
 
 }
