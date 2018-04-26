@@ -37,6 +37,7 @@ export class RestoreHistoryComponent implements OnInit {
             let dataResponse = baseResponse as DataResponse<RestoreHistoryContainer>;
             this.lastRestore = dataResponse.response.lastRestore;
             this.restores = dataResponse.response.restores;
+            console.log(this.lastRestore.startDate);
           } else {
             console.log((baseResponse as ErrorResponse).errorInfo);
           }

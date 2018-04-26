@@ -3,8 +3,8 @@ export class RestoreHistory {
   filename: string;
   filesize: string;
   clearDB: boolean;
-  startDate: Date;
-  endDate: Date;
+  startDate: any;
+  endDate: any;
   executionTime: string;
   restoreStatus: string;
   executorUsername: string;
