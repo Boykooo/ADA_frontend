@@ -5,8 +5,10 @@ import { BaseResponse } from '../../../shared/response/base.response';
 import { ResponseStatus } from '../../../shared/response/model/response-status.model';
 import { RestoreHistory } from '../../domain/restore-history';
 import { ErrorResponse } from '../../../shared/response/error.response';
-import { RestoreHistoryContainer } from '../../domain/restore-history-container';
+import { RestoreHistoryContainer } from '../../dto/restore-history-container';
 import { DataResponse } from '../../../shared/response/data.response';
+import { DateHelper } from '../../../shared/util/date-helper';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-restore-history',
@@ -16,7 +18,10 @@ import { DataResponse } from '../../../shared/response/data.response';
 export class RestoreHistoryComponent implements OnInit {
 
   lastRestore: RestoreHistory;
-  restores: RestoreHistory[];
+  dateHelper = DateHelper;
+
+  displayedColumns = ['filename', 'dumpDate', 'status', 'executionTime', 'clearDB', 'moreInfo'];
+  dataSource: RestoreHistory[];
 
   constructor(private titleService: Title,
               private restoreHistoryService: RestoreHistoryService) {
@@ -25,7 +30,7 @@ export class RestoreHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Restore history');
     this.lastRestore = new RestoreHistory();
-    this.restores = [];
+    this.dataSource = [];
     this.initData();
   }
 
@@ -36,12 +41,14 @@ export class RestoreHistoryComponent implements OnInit {
           if (baseResponse.status == ResponseStatus.OK) {
             let dataResponse = baseResponse as DataResponse<RestoreHistoryContainer>;
             this.lastRestore = dataResponse.response.lastRestore;
-            this.restores = dataResponse.response.restores;
-            console.log(this.lastRestore.startDate);
+            this.dataSource = dataResponse.response.restores;
+            console.log(dataResponse);
           } else {
             console.log((baseResponse as ErrorResponse).errorInfo);
           }
         }
-      )
+      );
   }
+
+
 }

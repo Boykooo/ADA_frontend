@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatRippleModule, MatSidenavModule,
+  MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule,
+  MatMenuModule,
+  MatSidenavModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule
@@ -16,7 +22,8 @@ const subModules: any = [
   MatListModule,
   MatTableModule,
   MatTabsModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTableModule
 ];
 
 @NgModule({
