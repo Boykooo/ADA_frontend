@@ -5,7 +5,7 @@ import {
   MatGridListModule,
   MatIconModule,
   MatListModule,
-  MatMenuModule,
+  MatMenuModule, MatPaginatorModule,
   MatSidenavModule,
   MatTableModule,
   MatTabsModule,
@@ -23,7 +23,8 @@ const subModules: any = [
   MatTableModule,
   MatTabsModule,
   MatSidenavModule,
-  MatTableModule
+  MatTableModule,
+  MatPaginatorModule
 ];
 
 @NgModule({

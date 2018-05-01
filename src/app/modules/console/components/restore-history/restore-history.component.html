@@ -63,13 +63,12 @@
             <h1>МЕСТО ПОД КАРТУ</h1>
           </mat-card>
         </div>
-
         <div fxLayout="column">
           <div fxLayout="row">
             <h2 fxFlexOffset="10">Old restores</h2>
           </div>
           <div fxLayout="row">
-            <mat-table [dataSource]="dataSource" fxFlex="80" fxFlexOffset="10" style="margin-bottom: 50px">
+            <mat-table [dataSource]="dataSource" fxFlex="80" fxFlexOffset="10">
               <ng-container matColumnDef="filename">
                 <mat-header-cell *matHeaderCellDef>Filename</mat-header-cell>
                 <mat-cell *matCellDef="let restore"> {{restore.filename}}</mat-cell>
@@ -109,6 +108,15 @@
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
             </mat-table>
           </div>
+          <div fxLayout="row">
+            <mat-paginator fxFlexOffset="10" fxFlex="80"
+                           [length]="countObjects"
+                           [pageSize]="pageSize"
+                           [showFirstLastButtons]="true">
+            </mat-paginator>
+          </div>
+        </div>
+        <div style="margin-bottom: 100px">
         </div>
       </div>
     </div>
