@@ -9,28 +9,30 @@ import { RoutingService } from './services/routing.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
-import { TestComponent } from './components/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { ConsoleNavbarComponent } from './components/common/console-navbar/console-navbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {DumpsComponent} from "./components/dumps/dumps.component";
+import { DumpsComponent } from './components/dumps/dumps.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { RestoreHistoryComponent } from './components/restore-history/restore-history.component';
 import { RestoreHistoryService } from './services/restore-history.service';
 import { DumpService } from './services/dump.service';
+import { SystemComponent } from './components/system/system.component';
+import { TestingComponent } from './components/testing/testing.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
     ExceptionComponent,
-    TestComponent,
     NavbarComponent,
     ConsoleNavbarComponent,
     DumpsComponent,
     SettingsComponent,
-    RestoreHistoryComponent
+    RestoreHistoryComponent,
+    SystemComponent,
+    TestingComponent
   ],
   imports: [
     FormsModule,

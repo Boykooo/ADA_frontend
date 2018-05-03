@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../components/login/login.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { ExceptionComponent } from '../components/exception/exception.component';
-import { TestComponent } from '../components/test/test.component';
 import { DumpsComponent } from '../components/dumps/dumps.component';
 import { SettingsComponent } from '../components/settings/settings.component';
 import { RestoreHistoryComponent } from '../components/restore-history/restore-history.component';
+import { SystemComponent } from '../components/system/system.component';
+import { TestingComponent } from '../components/testing/testing.component';
 
 const routes: Routes = [
   {
@@ -22,10 +23,6 @@ const routes: Routes = [
     component: ExceptionComponent
   },
   {
-    path: 'test',
-    component: TestComponent
-  },
-  {
     path: 'dumps',
     component: DumpsComponent
   },
@@ -36,6 +33,14 @@ const routes: Routes = [
   {
     path: 'history',
     component: RestoreHistoryComponent
+  },
+  {
+    path: 'system',
+    component: SystemComponent
+  },
+  {
+    path: 'testing',
+    component: TestingComponent
   }
 ];
 

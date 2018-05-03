@@ -22,12 +22,10 @@
   width: 32px !important;
 }
 
-.nested-font-size-18 > * {
+.nested-font-size-16 > * {
   font-size: 16px;
 }
 
 .full-width {
   width: 100%;
 }
-
-

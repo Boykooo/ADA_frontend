@@ -7,24 +7,25 @@ import { RoutingService } from './routing.service';
 import { CookieService } from 'ngx-cookie-service';
 import { DataResponse } from '../../shared/response/data.response';
 import { AuthDataModel } from '../domain/auth-data.model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
   private url: string;
   private authData: AuthDataModel;
-  private authHeader: string;
+  private tokenKey: string;
 
   constructor(private httpClient: HttpClient,
               private routingService: RoutingService,
               private cookieService: CookieService) {
-    this.url = 'http://localhost:9081/auth';
-    this.authHeader = "Auth-Token";
+    this.url = environment.authUrl;
+    this.tokenKey = "Auth-Token";
     this.init();
   }
 
   private init(): void {
-    let token = this.cookieService.get('token');
+    let token = this.cookieService.get(this.tokenKey);
     if (token) {
       this.authData = new AuthDataModel();
       this.authData.token = token;
@@ -33,7 +34,7 @@ export class AuthService {
 
   public login(loginModel: LoginModel): Observable<BaseResponse> {
     return this.httpClient.post<BaseResponse>(
-      this.url + '/login',
+      this.url + '/auth/login',
       loginModel,
     );
   }
@@ -46,7 +47,7 @@ export class AuthService {
 
   public successLogin(dataResponse: DataResponse<AuthDataModel>) {
     this.authData = dataResponse.response;
-    this.cookieService.set(this.authHeader, this.authData.token);
+    this.cookieService.set(this.tokenKey, this.authData.token);
   }
 
   private isLogin(): boolean {

@@ -9,6 +9,7 @@ import { RestoreHistoryContainer } from '../../dto/restore-history-container';
 import { DataResponse } from '../../../shared/response/data.response';
 import { DateHelper } from '../../../shared/util/date-helper';
 import { MatPaginator, PageEvent } from '@angular/material';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-restore-history',
@@ -29,10 +30,12 @@ export class RestoreHistoryComponent implements OnInit {
   paginator: MatPaginator;
 
   constructor(private titleService: Title,
-              private restoreHistoryService: RestoreHistoryService) {
+              private restoreHistoryService: RestoreHistoryService,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.authService.checkLogin();
     this.titleService.setTitle('Restore history');
     this.lastRestore = new RestoreHistory();
     this.dataSource = [];

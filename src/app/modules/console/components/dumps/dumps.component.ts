@@ -6,6 +6,7 @@ import { ResponseStatus } from '../../../shared/response/model/response-status.m
 import { ErrorResponse } from '../../../shared/response/error.response';
 import { DataResponse } from '../../../shared/response/data.response';
 import { RestoreParams } from '../../dto/restore-params';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dumps',
@@ -18,10 +19,12 @@ export class DumpsComponent implements OnInit {
   restoreParams: RestoreParams;
 
   constructor(private titleService: Title,
-              private dumpService: DumpService) {
+              private dumpService: DumpService,
+              private authService: AuthService) {
   }
 
   public ngOnInit(): void {
+    this.authService.checkLogin();
     this.titleService.setTitle('Dumps');
     this.dumps = [];
     this.restoreParams = new RestoreParams();
