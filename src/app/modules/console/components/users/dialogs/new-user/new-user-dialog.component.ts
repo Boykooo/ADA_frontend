@@ -47,7 +47,16 @@ export class NewUserDialogComponent implements OnInit {
   }
 
   createUser(): void {
-
+    this.accountService.createAccount(this.accountDto)
+      .subscribe(
+        baseResponse => {
+          if (baseResponse.status == ResponseStatus.OK) {
+            this.dialog.close();
+          } else {
+            this.error = (baseResponse as ErrorResponse).errorInfo.message;
+          }
+        }
+      )
   }
 
 }
