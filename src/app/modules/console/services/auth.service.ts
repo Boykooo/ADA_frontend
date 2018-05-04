@@ -19,8 +19,8 @@ export class AuthService {
   constructor(private httpClient: HttpClient,
               private routingService: RoutingService,
               private cookieService: CookieService) {
-    this.url = environment.authUrl;
-    this.tokenKey = "Auth-Token";
+    this.url = environment.authUrl + '/auth';
+    this.tokenKey = 'Auth-Token';
     this.init();
   }
 
@@ -34,8 +34,18 @@ export class AuthService {
 
   public login(loginModel: LoginModel): Observable<BaseResponse> {
     return this.httpClient.post<BaseResponse>(
-      this.url + '/auth/login',
+      this.url + '/login',
       loginModel,
+    );
+  }
+
+  public register(loginModel: LoginModel): Observable<BaseResponse> {
+    return this.httpClient.post<BaseResponse>(
+      this.url + '/register',
+      loginModel,
+      {
+        withCredentials: true
+      }
     );
   }
 

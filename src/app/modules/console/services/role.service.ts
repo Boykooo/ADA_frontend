@@ -1,28 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import { Observable } from 'rxjs/Observable';
+import { BaseResponse } from '../../shared/response/base.response';
 
 @Injectable()
-export class AccountService {
+export class RoleService {
 
   private url: string;
 
   constructor(private httpClient: HttpClient) {
-    this.url = environment.authUrl + '/account';
+    this.url = environment.authUrl + '/role';
   }
 
-  public getAccounts(page: number, size: number): any {
-    return this.httpClient.get(
+  public getAllRoles(): Observable<BaseResponse> {
+    return this.httpClient.get<BaseResponse>(
       this.url,
       {
-        params: {
-          page: page.toString(),
-          size: size.toString()
-        },
         withCredentials: true
       }
-    );
+    )
   }
-
 
 }

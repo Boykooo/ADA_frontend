@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
-  MatCardModule, MatCheckboxModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
+  MatInputModule,
   MatListModule,
-  MatMenuModule, MatPaginatorModule, MatSelectModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatSelectModule,
   MatSidenavModule,
   MatTableModule,
   MatTabsModule,
@@ -26,7 +32,10 @@ const subModules: any = [
   MatTableModule,
   MatPaginatorModule,
   MatSelectModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule
 ];
 
 @NgModule({

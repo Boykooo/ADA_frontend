@@ -8,8 +8,9 @@ import { DataResponse } from '../../../shared/response/data.response';
 import { AccountsContainer } from '../../dto/accounts-container';
 import { Account } from '../../domain/account';
 import { AuthService } from '../../services/auth.service';
-import { MatPaginator } from '@angular/material';
+import { MatDialog, MatPaginator } from '@angular/material';
 import { DateHelper } from '../../../shared/util/date-helper';
+import { NewUserDialogComponent } from './dialogs/new-user/new-user-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -28,9 +29,13 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
+  newUserDialog;
+
+
   constructor(private titleService: Title,
               private authService: AuthService,
-              private accountService: AccountService) {
+              private accountService: AccountService,
+              private dialog: MatDialog) {
   }
 
   public ngOnInit() {
@@ -57,7 +62,12 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(id: number): void {
+  }
 
+  createUser(): void {
+    this.dialog.open(NewUserDialogComponent, {
+      width: '400px'
+    });
   }
 
 }

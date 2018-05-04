@@ -22,6 +22,8 @@ import { SystemComponent } from './components/system/system.component';
 import { TestingComponent } from './components/testing/testing.component';
 import { UsersComponent } from './components/users/users.component';
 import { AccountService } from './services/account.service';
+import { NewUserDialogComponent } from './components/users/dialogs/new-user/new-user-dialog.component';
+import { RoleService } from './services/role.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AccountService } from './services/account.service';
     RestoreHistoryComponent,
     SystemComponent,
     TestingComponent,
-    UsersComponent
+    UsersComponent,
+    NewUserDialogComponent
   ],
   imports: [
     FormsModule,
@@ -51,7 +54,11 @@ import { AccountService } from './services/account.service';
     CookieService,
     RestoreHistoryService,
     DumpService,
-    AccountService
+    AccountService,
+    RoleService
+  ],
+  entryComponents: [
+    NewUserDialogComponent
   ]
 })
 export class ConsoleModule {
