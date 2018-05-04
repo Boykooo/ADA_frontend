@@ -1,16 +1,19 @@
-<div >
+<div>
   <mat-list fxFlex="100">
     <mat-list-item>
+      <h2>New user</h2>
+    </mat-list-item>
+    <mat-list-item class="list-item-margin">
       <mat-form-field fxFlex="100">
         <input matInput placeholder="Email" [(ngModel)]="accountDto.email">
       </mat-form-field>
     </mat-list-item>
-    <mat-list-item>
+    <mat-list-item class="list-item-margin">
       <mat-form-field fxFlex="100">
         <input matInput placeholder="Password" [(ngModel)]="accountDto.password">
       </mat-form-field>
     </mat-list-item>
-    <mat-list-item>
+    <mat-list-item class="list-item-margin">
       <mat-form-field fxFlex="100">
         <mat-select placeholder="Roles" [(ngModel)]="accountDto.roleIds" multiple>
           <mat-option *ngFor="let role of roles" [value]="role.id">
@@ -19,8 +22,13 @@
         </mat-select>
       </mat-form-field>
     </mat-list-item>
-    <mat-list-item>
-      <button mat-raised-button color="accent" style="font-size: 16px" (click)="createUser()">
+    <mat-list-item *ngIf="error != null" class="list-item-margin">
+      <span style="font-size: 16px; color: #980000;">
+        {{error}}
+      </span>
+    </mat-list-item>
+    <mat-list-item class="list-item-margin">
+      <button mat-raised-button color="primary" style="font-size: 16px" (click)="createUser()">
         Create user
       </button>
     </mat-list-item>

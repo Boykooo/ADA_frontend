@@ -11,7 +11,7 @@
             <div fxLayout="row">
               <div fxFlexOffset="12" fxLayoutAlign="center center">
                 <span style="font-size: 34px; font-weight: bold;">Users</span>
-                <button mat-mini-fab color="accent" style="margin-left: 10px;" (click)="createUser()">
+                <button mat-mini-fab color="accent" style="margin-left: 10px;" (click)="showCreateUserDialog()">
                   <i class="material-icons">add</i>
                 </button>
               </div>
@@ -43,12 +43,22 @@
                   </mat-cell>
                 </ng-container>
 
+
                 <ng-container matColumnDef="edit">
                   <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                  <mat-cell *matCellDef="let restore">
-                    <button mat-icon-button>
-                      <i class="material-icons">mode_edit</i>
-                    </button>
+                  <mat-cell *matCellDef="let user">
+                    <div fxLayout="row" fxFlex="100">
+                      <div fxFlex="50" fxLayoutAlign="end">
+                        <button mat-icon-button>
+                          <i class="material-icons">mode_edit</i>
+                        </button>
+                      </div>
+                      <div fxFlex="50">
+                        <button mat-icon-button style="margin-left: 10px" (click)="showDeleteUserDialog(user.id)">
+                          <i class="material-icons" style="color: #8d0000">delete</i>
+                        </button>
+                      </div>
+                    </div>
                   </mat-cell>
                 </ng-container>
 

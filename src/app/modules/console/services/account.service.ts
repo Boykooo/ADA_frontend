@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { AccountDto } from '../dto/account-dto';
 import { Observable } from 'rxjs/Observable';
-import { DataResponse } from '../../shared/response/data.response';
 import { BaseResponse } from '../../shared/response/base.response';
 
 @Injectable()
@@ -15,8 +14,8 @@ export class AccountService {
     this.url = environment.authUrl + '/account';
   }
 
-  public getAccounts(page: number, size: number): any {
-    return this.httpClient.get(
+  public getAccounts(page: number, size: number): Observable<BaseResponse> {
+    return this.httpClient.get<BaseResponse>(
       this.url,
       {
         params: {
@@ -32,6 +31,15 @@ export class AccountService {
     return this.httpClient.post<BaseResponse>(
       this.url,
       accountDto,
+      {
+        withCredentials: true
+      }
+    )
+  }
+
+  public deleteUser(id: number): Observable<BaseResponse> {
+    return this.httpClient.delete<BaseResponse>(
+      this.url + '/' + id,
       {
         withCredentials: true
       }

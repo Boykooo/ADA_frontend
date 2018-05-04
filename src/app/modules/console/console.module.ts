@@ -24,6 +24,7 @@ import { UsersComponent } from './components/users/users.component';
 import { AccountService } from './services/account.service';
 import { NewUserDialogComponent } from './components/users/dialogs/new-user/new-user-dialog.component';
 import { RoleService } from './services/role.service';
+import { DeleteUserDialogComponent } from './components/users/dialogs/delete-user/delete-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RoleService } from './services/role.service';
     SystemComponent,
     TestingComponent,
     UsersComponent,
-    NewUserDialogComponent
+    NewUserDialogComponent,
+    DeleteUserDialogComponent
   ],
   imports: [
     FormsModule,
@@ -58,7 +60,8 @@ import { RoleService } from './services/role.service';
     RoleService
   ],
   entryComponents: [
-    NewUserDialogComponent
+    NewUserDialogComponent,
+    DeleteUserDialogComponent
   ]
 })
 export class ConsoleModule {

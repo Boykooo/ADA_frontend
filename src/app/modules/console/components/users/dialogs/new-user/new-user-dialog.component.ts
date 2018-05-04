@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../services/auth.service';
 import { ResponseStatus } from '../../../../../shared/response/model/response-status.model';
 import { ErrorResponse } from '../../../../../shared/response/error.response';
 import { MatDialogRef } from '@angular/material';
@@ -8,13 +7,13 @@ import { Role } from '../../../../domain/role';
 import { DataResponse } from '../../../../../shared/response/data.response';
 import { AccountDto } from '../../../../dto/account-dto';
 import { AccountService } from '../../../../services/account.service';
+import { DeleteUserDialogComponent } from '../delete-user/delete-user-dialog.component';
 
 @Component({
   selector: 'app-new-user-dialog',
   templateUrl: './new-user-dialog.component.html',
   styleUrls: ['new-user-dialog.component.css']
 })
-
 export class NewUserDialogComponent implements OnInit {
 
   roles: Role[];
@@ -23,7 +22,7 @@ export class NewUserDialogComponent implements OnInit {
   error: string;
 
   constructor(private accountService: AccountService,
-              private dialog: MatDialogRef<NewUserDialogComponent>,
+              private newUserDialog: MatDialogRef<NewUserDialogComponent>,
               private roleService: RoleService) {
   }
 
@@ -51,7 +50,7 @@ export class NewUserDialogComponent implements OnInit {
       .subscribe(
         baseResponse => {
           if (baseResponse.status == ResponseStatus.OK) {
-            this.dialog.close();
+            this.newUserDialog.close();
           } else {
             this.error = (baseResponse as ErrorResponse).errorInfo.message;
           }

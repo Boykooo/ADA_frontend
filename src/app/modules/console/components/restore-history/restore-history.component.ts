@@ -48,7 +48,7 @@ export class RestoreHistoryComponent implements OnInit {
       .subscribe(response => this.handleRestoreHistoriesResponse(response));
   }
 
-  public ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     this.paginator.page
       .subscribe(
         (pageEvent: PageEvent) => {
