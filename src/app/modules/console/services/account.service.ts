@@ -1,18 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 
 @Injectable()
-export class RestoreHistoryService {
+export class AccountService {
 
   private url: string;
 
   constructor(private httpClient: HttpClient) {
-    this.url = environment.geoUrl + '/restore-history';
+    this.url = environment.authUrl + '/account';
   }
 
-  getRestoreHistories(page: number, size: number): any {
-    return this.httpClient.get(this.url,
+  public getAccounts(page: number, size: number): any {
+    return this.httpClient.get(
+      this.url,
       {
         params: {
           page: page.toString(),

@@ -1,0 +1,73 @@
+<div fx Layout="row" class="full-height">
+  <div fxFlex="10%">
+    <app-console-navbar></app-console-navbar>
+  </div>
+  <div fxFlex="90%">
+    <div fxLayout="row">
+      <div fxFlex="100%" style="background-color: #f5f5f5; height: 100vh">
+        <app-navbar></app-navbar>
+        <div fxLayout="column">
+          <div style="margin-top: 50px">
+            <div fxLayout="row">
+              <div fxFlexOffset="12" fxLayoutAlign="center center">
+                <span style="font-size: 30px; font-weight: bold;">Users</span>
+                <button mat-mini-fab color="accent" style="margin-left: 10px;" class="del">
+                  <i class="material-icons">add</i>
+                </button>
+              </div>
+            </div>
+            <div fxLayout="row" style="margin-top: 20px">
+              <mat-table [dataSource]="dataSource" fxFlex="80" fxFlexOffset="10">
+
+                <ng-container matColumnDef="email">
+                  <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+                  <mat-cell *matCellDef="let user">{{user.email}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="regDate">
+                  <mat-header-cell *matHeaderCellDef>Registration date</mat-header-cell>
+                  <mat-cell *matCellDef="let user">{{dateHelper.fromMilis(user.regDate)}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="verifiedEmail">
+                  <mat-header-cell *matHeaderCellDef>Verified email</mat-header-cell>
+                  <mat-cell *matCellDef="let user">{{user.verifiedEmail}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="roles">
+                  <mat-header-cell *matHeaderCellDef>Roles</mat-header-cell>
+                  <mat-cell *matCellDef="let user">
+                    <ng-container *ngFor="let role of user.roles">
+                      {{role.name}}
+                    </ng-container>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="edit">
+                  <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                  <mat-cell *matCellDef="let restore">
+                    <button mat-icon-button>
+                      <i class="material-icons">mode_edit</i>
+                    </button>
+                  </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </div>
+            <div fxLayout="row">
+              <mat-paginator fxFlexOffset="10" fxFlex="80"
+                             [length]="total"
+                             [pageSize]="pageSize"
+                             [showFirstLastButtons]="true">
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

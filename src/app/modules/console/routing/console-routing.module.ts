@@ -8,6 +8,7 @@ import { SettingsComponent } from '../components/settings/settings.component';
 import { RestoreHistoryComponent } from '../components/restore-history/restore-history.component';
 import { SystemComponent } from '../components/system/system.component';
 import { TestingComponent } from '../components/testing/testing.component';
+import { UsersComponent } from '../components/users/users.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'testing',
     component: TestingComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
   }
 ];
 

@@ -30,11 +30,11 @@
                   </mat-list-item>
                   <mat-list-item>
                     <b fxFlex="30" fxLayoutAlign="start">Start date:</b>
-                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.toReadable(lastRestore.startDate)}}</div>
+                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.fromDateWrapper(lastRestore.startDate)}}</div>
                   </mat-list-item>
                   <mat-list-item>
                     <b fxFlex="30" fxLayoutAlign="start">End date:</b>
-                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.toReadable(lastRestore.endDate)}}</div>
+                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.fromDateWrapper(lastRestore.endDate)}}</div>
                   </mat-list-item>
                   <mat-list-item>
                     <b fxFlex="30" fxLayoutAlign="start">Execution time:</b>
@@ -69,24 +69,25 @@
           </div>
           <div fxLayout="row">
             <mat-table [dataSource]="dataSource" fxFlex="80" fxFlexOffset="10">
+
               <ng-container matColumnDef="filename">
                 <mat-header-cell *matHeaderCellDef>Filename</mat-header-cell>
-                <mat-cell *matCellDef="let restore"> {{restore.filename}}</mat-cell>
+                <mat-cell *matCellDef="let restore">{{restore.filename}}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="dumpDate">
                 <mat-header-cell *matHeaderCellDef> Start date</mat-header-cell>
-                <mat-cell *matCellDef="let restore"> {{dateHelper.toReadable(restore.startDate)}}</mat-cell>
+                <mat-cell *matCellDef="let restore">{{dateHelper.fromDateWrapper(restore.startDate)}}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
-                <mat-cell *matCellDef="let restore"> {{restore.restoreStatus}}</mat-cell>
+                <mat-cell *matCellDef="let restore">{{restore.restoreStatus}}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="executionTime">
                 <mat-header-cell *matHeaderCellDef> Execution time</mat-header-cell>
-                <mat-cell *matCellDef="let restore"> {{restore.executionTime}}</mat-cell>
+                <mat-cell *matCellDef="let restore">{{restore.executionTime}}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="clearDB">
@@ -110,7 +111,7 @@
           </div>
           <div fxLayout="row">
             <mat-paginator fxFlexOffset="10" fxFlex="80"
-                           [length]="countObjects"
+                           [length]="total"
                            [pageSize]="pageSize"
                            [showFirstLastButtons]="true">
             </mat-paginator>

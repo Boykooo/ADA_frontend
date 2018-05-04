@@ -6,10 +6,16 @@ import { Injectable } from '@angular/core';
 export class DateHelper {
 
   private static datePipe: DatePipe = new DatePipe("en-eu");
-  private static format: string = 'yyyy-MM-dd HH:mm:ss';
+  private static fullFormat: string = 'yyyy-MM-dd HH:mm:ss';
+  private static dateFormat: string = 'yyyy-MM-dd';
 
-  public static toReadable(dateWrapper: DateWrapper) {
-    return dateWrapper != null ? this.datePipe.transform(dateWrapper.epochSecond * 1000, this.format) : null;
+
+  public static fromDateWrapper(dateWrapper: DateWrapper) {
+    return dateWrapper != null ? this.datePipe.transform(dateWrapper.epochSecond * 1000, this.fullFormat) : null;
+  }
+
+  public static fromMilis(milis: number) {
+    return this.datePipe.transform(milis, this.dateFormat);
   }
 
 }

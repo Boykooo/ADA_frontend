@@ -23,8 +23,8 @@ export class RestoreHistoryComponent implements OnInit {
 
   displayedColumns = ['filename', 'dumpDate', 'status', 'executionTime', 'clearDB', 'moreInfo'];
   dataSource: RestoreHistory[];
-  countObjects: number;
-  pageSize: number = 5;
+  total: number;
+  pageSize: number;
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
@@ -39,11 +39,13 @@ export class RestoreHistoryComponent implements OnInit {
     this.titleService.setTitle('Restore history');
     this.lastRestore = new RestoreHistory();
     this.dataSource = [];
+    this.pageSize = 5;
     this.initData();
   }
 
   private initData(): void {
-    this.restoreHistoryService.getRestoreHistories(0, this.pageSize).subscribe(response => this.handleRestoreHistoriesResponse(response));
+    this.restoreHistoryService.getRestoreHistories(0, this.pageSize)
+      .subscribe(response => this.handleRestoreHistoriesResponse(response));
   }
 
   public ngAfterViewInit() {
@@ -61,8 +63,7 @@ export class RestoreHistoryComponent implements OnInit {
       let dataResponse = baseResponse as DataResponse<RestoreHistoryContainer>;
       this.lastRestore = dataResponse.response.lastRestore;
       this.dataSource = dataResponse.response.restores;
-      this.countObjects = dataResponse.response.total;
-      console.log(dataResponse);
+      this.total = dataResponse.response.total;
     } else {
       console.log((baseResponse as ErrorResponse).errorInfo);
     }
