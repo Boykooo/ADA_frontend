@@ -9,6 +9,7 @@ import { RestoreHistoryComponent } from '../components/restore-history/restore-h
 import { SystemComponent } from '../components/system/system.component';
 import { TestingComponent } from '../components/testing/testing.component';
 import { UsersComponent } from '../components/users/users.component';
+import { UserEditComponent } from '../components/users/user-edit/user-edit.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'users/:id',
+    component: UserEditComponent
   }
 ];
 

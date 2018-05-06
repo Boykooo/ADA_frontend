@@ -12,6 +12,7 @@ import { MatDialog, MatPaginator, PageEvent } from '@angular/material';
 import { DateHelper } from '../../../shared/util/date-helper';
 import { NewUserDialogComponent } from './dialogs/new-user/new-user-dialog.component';
 import { DeleteUserDialogComponent } from './dialogs/delete-user/delete-user-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -33,7 +34,8 @@ export class UsersComponent implements OnInit {
   constructor(private titleService: Title,
               private authService: AuthService,
               private accountService: AccountService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private router: Router) {
   }
 
   public ngOnInit() {
@@ -70,6 +72,7 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(id: number): void {
+    this.router.navigate(['/users', id]);
   }
 
   showCreateUserDialog(): void {
@@ -97,7 +100,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(id: number): void {
-    this.accountService.deleteUser(id)
+    this.accountService.deleteAccount(id)
       .subscribe(
         baseResponse => {
           if (baseResponse.status == ResponseStatus.OK) {

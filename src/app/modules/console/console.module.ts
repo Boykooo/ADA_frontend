@@ -25,6 +25,7 @@ import { AccountService } from './services/account.service';
 import { NewUserDialogComponent } from './components/users/dialogs/new-user/new-user-dialog.component';
 import { RoleService } from './services/role.service';
 import { DeleteUserDialogComponent } from './components/users/dialogs/delete-user/delete-user-dialog.component';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DeleteUserDialogComponent } from './components/users/dialogs/delete-use
     TestingComponent,
     UsersComponent,
     NewUserDialogComponent,
-    DeleteUserDialogComponent
+    DeleteUserDialogComponent,
+    UserEditComponent
   ],
   imports: [
     FormsModule,

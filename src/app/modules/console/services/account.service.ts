@@ -34,16 +34,34 @@ export class AccountService {
       {
         withCredentials: true
       }
-    )
+    );
   }
 
-  public deleteUser(id: number): Observable<BaseResponse> {
+  public deleteAccount(id: number): Observable<BaseResponse> {
     return this.httpClient.delete<BaseResponse>(
       this.url + '/' + id,
       {
         withCredentials: true
       }
-    )
+    );
   }
 
+  public getAccount(id): Observable<BaseResponse> {
+    return this.httpClient.get<BaseResponse>(
+      this.url + '/' + id,
+      {
+        withCredentials: true
+      }
+    );
+  }
+
+  public updateAccount(accountDto: AccountDto): Observable<BaseResponse> {
+    return this.httpClient.put<BaseResponse>(
+      this.url,
+      accountDto,
+      {
+        withCredentials: true
+      }
+    )
+  }
 }
