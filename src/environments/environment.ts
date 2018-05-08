@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   geoUrl: 'http://localhost:9082',
+  geoSocketUrl: 'http://localhost:9082/socket',
   authUrl: 'http://localhost:9081'
 };

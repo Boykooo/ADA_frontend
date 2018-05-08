@@ -13,6 +13,7 @@ import { DateHelper } from '../../../shared/util/date-helper';
 import { NewUserDialogComponent } from './dialogs/new-user/new-user-dialog.component';
 import { DeleteUserDialogComponent } from './dialogs/delete-user/delete-user-dialog.component';
 import { Router } from '@angular/router';
+import { Role } from '../../domain/role';
 
 @Component({
   selector: 'app-users',
@@ -23,13 +24,16 @@ export class UsersComponent implements OnInit {
 
   dateHelper = DateHelper;
 
-  dataSource: Account[];
-  total: number;
-  pageSize: number;
-  displayedColumns = ['email', 'regDate', 'verifiedEmail', 'roles', 'edit'];
+  userDataSource: Account[];
+  totalUsers: number;
+  userPageSize: number;
+  userColumns = ['email', 'regDate', 'verifiedEmail', 'roles', 'edit'];
+
+  roleDataSource: Role[];
+  roleColumns = ['name', 'description'];
 
   @ViewChild(MatPaginator)
-  paginator: MatPaginator;
+  usersPaginator: MatPaginator;
 
   constructor(private titleService: Title,
               private authService: AuthService,
@@ -41,18 +45,18 @@ export class UsersComponent implements OnInit {
   public ngOnInit() {
     this.authService.checkLogin();
     this.titleService.setTitle('Users');
-    this.pageSize = 5;
+    this.userPageSize = 5;
     this.initData();
   }
 
   public ngAfterViewInit(): void {
-    this.paginator.page
+    this.usersPaginator.page
       .subscribe(
         (pageEvent: PageEvent) => this.handleAccountsPageEvent(pageEvent.pageIndex, pageEvent.pageSize));
   }
 
   initData(): void {
-    this.accountService.getAccounts(0, this.pageSize)
+    this.accountService.getAccounts(0, this.userPageSize)
       .subscribe(baseResponse => this.handleAccountsPageResponse(baseResponse));
   }
 
@@ -64,8 +68,8 @@ export class UsersComponent implements OnInit {
   private handleAccountsPageResponse(baseResponse: BaseResponse) {
     if (baseResponse.status == ResponseStatus.OK) {
       let dataResponse = baseResponse as DataResponse<AccountsContainer>;
-      this.total = dataResponse.response.total;
-      this.dataSource = dataResponse.response.accounts;
+      this.totalUsers = dataResponse.response.total;
+      this.userDataSource = dataResponse.response.accounts;
     } else {
       console.log((baseResponse as ErrorResponse).errorInfo);
     }
@@ -81,7 +85,7 @@ export class UsersComponent implements OnInit {
     }).afterClosed()
       .subscribe(
         result => {
-          this.handleAccountsPageEvent(this.paginator.pageIndex, this.paginator.pageSize);
+          this.handleAccountsPageEvent(this.usersPaginator.pageIndex, this.usersPaginator.pageSize);
         }
       );
   }
@@ -104,7 +108,7 @@ export class UsersComponent implements OnInit {
       .subscribe(
         baseResponse => {
           if (baseResponse.status == ResponseStatus.OK) {
-            this.handleAccountsPageEvent(this.paginator.pageIndex, this.paginator.pageSize);
+            this.handleAccountsPageEvent(this.usersPaginator.pageIndex, this.usersPaginator.pageSize);
           } else {
             console.log((baseResponse as ErrorResponse).errorInfo);
           }

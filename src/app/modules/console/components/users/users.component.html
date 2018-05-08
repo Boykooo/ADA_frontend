@@ -17,7 +17,7 @@
               </div>
             </div>
             <div fxLayout="row" style="margin-top: 20px">
-              <mat-table [dataSource]="dataSource" fxFlex="80" fxFlexOffset="10">
+              <mat-table [dataSource]="userDataSource" fxFlex="80" fxFlexOffset="10">
 
                 <ng-container matColumnDef="email">
                   <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
@@ -62,16 +62,21 @@
                   </mat-cell>
                 </ng-container>
 
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <mat-header-row *matHeaderRowDef="userColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: userColumns;"></mat-row>
               </mat-table>
             </div>
             <div fxLayout="row">
               <mat-paginator fxFlexOffset="10" fxFlex="80"
-                             [length]="total"
-                             [pageSize]="pageSize"
+                             [length]="totalUsers"
+                             [pageSize]="userPageSize"
                              [showFirstLastButtons]="true">
               </mat-paginator>
+            </div>
+          </div>
+          <div style="margin-top: 50px">
+            <div fxLayout="row">
+              <mat-table [dataSource]=""
             </div>
           </div>
         </div>

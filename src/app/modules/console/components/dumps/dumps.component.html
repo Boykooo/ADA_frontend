@@ -10,6 +10,12 @@
           <div fxLayout="row">
             <mat-card fxFlex="90" fxFlexOffset="5">
               <h2>Dump is processing</h2>
+              <button mat-raised-button color="primary" (click)="sendThroughSocket()">
+                Test socket
+              </button>
+              <h2>
+                {{socketResponse}}
+              </h2>
             </mat-card>
           </div>
           <div fxLayout="row">
