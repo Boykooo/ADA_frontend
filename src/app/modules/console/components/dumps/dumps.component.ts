@@ -26,14 +26,11 @@ export class DumpsComponent implements OnInit {
   dumps: string[];
   restoreParams: RestoreParams;
   restoreProcess: RestoreProcess;
-
-  Object = Object;
   osmEntityType = OsmEntityType;
 
   constructor(private titleService: Title,
               private dumpService: DumpService,
-              private authService: AuthService,
-              private cd: ChangeDetectorRef) {
+              private authService: AuthService) {
   }
 
   public ngOnInit(): void {
