@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { DumpService } from '../../services/dump.service';
 import { BaseResponse } from '../../../shared/response/base.response';
@@ -10,8 +10,9 @@ import { AuthService } from '../../services/auth.service';
 
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
-import apply = Reflect.apply;
 import { environment } from '../../../../../environments/environment';
+import { RestoreProcess } from '../../dto/restore-process';
+import { OsmEntityType } from '../../dto/osm-entity-type';
 
 @Component({
   selector: 'app-dumps',
@@ -24,11 +25,15 @@ export class DumpsComponent implements OnInit {
 
   dumps: string[];
   restoreParams: RestoreParams;
-  socketResponse: any;
+  restoreProcess: RestoreProcess;
+
+  Object = Object;
+  osmEntityType = OsmEntityType;
 
   constructor(private titleService: Title,
               private dumpService: DumpService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private cd: ChangeDetectorRef) {
   }
 
   public ngOnInit(): void {
@@ -37,11 +42,11 @@ export class DumpsComponent implements OnInit {
     this.dumps = [];
     this.restoreParams = new RestoreParams();
     this.initData();
-    this.socketResponse = 'null';
     this.initSocketConnection();
   }
 
   public initData(): void {
+    console.log(Object.values(OsmEntityType));
     this.dumpService.getLocalDumps()
       .subscribe(
         (baseResponse: BaseResponse) => {
@@ -61,8 +66,8 @@ export class DumpsComponent implements OnInit {
     let that = this;
     this.stompClient.connect({}, function (frame) {
       that.stompClient.subscribe('/topic/restore-status', (message) => {
-        console.log('getting ' + message);
-        that.socketResponse = message.body;
+        that.restoreProcess = new RestoreProcess(JSON.parse(message.body));
+        console.log(that.restoreProcess);
       });
     });
   }

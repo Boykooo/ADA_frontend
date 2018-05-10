@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   geoUrl: 'http://localhost:9082',
   geoSocketUrl: 'http://localhost:9082/socket',
   authUrl: 'http://localhost:9081'

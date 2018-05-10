@@ -8,17 +8,6 @@
         <app-navbar></app-navbar>
         <div fxLayout="column">
           <div fxLayout="row">
-            <mat-card fxFlex="90" fxFlexOffset="5">
-              <h2>Dump is processing</h2>
-              <button mat-raised-button color="primary" (click)="sendThroughSocket()">
-                Test socket
-              </button>
-              <h2>
-                {{socketResponse}}
-              </h2>
-            </mat-card>
-          </div>
-          <div fxLayout="row">
             <mat-card fxFlex="40" fxFlexOffset="5">
               <mat-card-content>
                 <mat-card-header fxLayoutAlign="center">
@@ -71,6 +60,27 @@
                   Restore
                 </button>
               </mat-card-actions>
+            </mat-card>
+            <mat-card *ngIf="restoreProcess != null" fxFlex="40" fxFlexOffset="5">
+              <mat-card-header fxLayoutAlign="center">
+                <h2>Dump is processing</h2>
+              </mat-card-header>
+              <mat-card-content>
+                <mat-list>
+                  <mat-list-item>
+                    <b fxFlex="30" fxLayoutAlign="start">Status:</b>
+                    <div fxFlex="70" fxLayoutAlign="start">
+                      {{restoreProcess.status}}
+                    </div>
+                  </mat-list-item>
+                  <mat-list-item *ngFor="let key of restoreProcess.objectsCounter.keys()">
+                    <b fxFlex="30" fxLayoutAlign="start">Count of {{osmEntityType[key]}}:</b>
+                    <div fxFlex="70" fxLayoutAlign="start">
+                      {{restoreProcess.objectsCounter.get(key)}}
+                    </div>
+                  </mat-list-item>
+                </mat-list>
+              </mat-card-content>
             </mat-card>
           </div>
         </div>
