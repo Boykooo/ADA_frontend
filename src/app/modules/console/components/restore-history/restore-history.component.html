@@ -30,11 +30,11 @@
                   </mat-list-item>
                   <mat-list-item>
                     <b fxFlex="30" fxLayoutAlign="start">Start date:</b>
-                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.fromDateWrapper(lastRestore.startDate)}}</div>
+                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.toReadable(lastRestore.startDate)}}</div>
                   </mat-list-item>
                   <mat-list-item>
                     <b fxFlex="30" fxLayoutAlign="start">End date:</b>
-                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.fromDateWrapper(lastRestore.endDate)}}</div>
+                    <div fxFlex="70" fxLayoutAlign="start">{{dateHelper.toReadable(lastRestore.endDate)}}</div>
                   </mat-list-item>
                   <mat-list-item>
                     <b fxFlex="30" fxLayoutAlign="start">Execution time:</b>
@@ -77,7 +77,7 @@
 
               <ng-container matColumnDef="dumpDate">
                 <mat-header-cell *matHeaderCellDef> Start date</mat-header-cell>
-                <mat-cell *matCellDef="let restore">{{dateHelper.fromDateWrapper(restore.startDate)}}</mat-cell>
+                <mat-cell *matCellDef="let restore">{{dateHelper.toReadable(restore.startDate)}}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="status">

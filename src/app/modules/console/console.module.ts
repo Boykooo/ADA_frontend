@@ -26,6 +26,7 @@ import { NewUserDialogComponent } from './components/users/dialogs/new-user/new-
 import { RoleService } from './services/role.service';
 import { DeleteUserDialogComponent } from './components/users/dialogs/delete-user/delete-user-dialog.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
     ConsoleRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ChartsModule
   ],
   providers: [
     AuthService,

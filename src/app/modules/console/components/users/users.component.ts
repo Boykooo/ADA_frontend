@@ -29,9 +29,6 @@ export class UsersComponent implements OnInit {
   userPageSize: number;
   userColumns = ['email', 'regDate', 'verifiedEmail', 'roles', 'edit'];
 
-  roleDataSource: Role[];
-  roleColumns = ['name', 'description'];
-
   @ViewChild(MatPaginator)
   usersPaginator: MatPaginator;
 
